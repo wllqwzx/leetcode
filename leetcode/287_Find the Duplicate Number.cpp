@@ -10,6 +10,18 @@
 using namespace std;
 
 //==========
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int slow = 0;
+        int fast = 1;
+        while(slow != fast){
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+
+        }
+    }
+};
 
 //==========
 
