@@ -20,7 +20,7 @@ public:
                 return solve(nums, target, left, mid-1);
         }
     }
-    
+
     int search(vector<int>& nums, int target) {
         return solve(nums, target, 0, nums.size()-1);
     }
