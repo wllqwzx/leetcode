@@ -1,10 +1,6 @@
-#include<iostream>
-#include<string>
 #include<vector>
-#include<map>
-#include<algorithm>
+using namespace std;
 
-//===============================
 struct ListNode {
     int val;
     ListNode *next;
@@ -15,34 +11,18 @@ struct ListNode {
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        if(head==NULL || head->next == NULL){
-            return head;
-        }else if(head->next->next == NULL){
-            ListNode *tail = head -> next;
-            tail->next = head;
-            head->next = NULL;
-            return tail;
-        }else{
-            ListNode *pre, *mid, *post;
-            pre = head;
-            mid = head->next;
-            post= head->next->next;
-            pre->next = NULL;
-            while(post->next != NULL){
-                mid->next = pre;
-                pre = mid;
-                mid = post;
-                post = post->next;
-            }
+        if(head==nullptr) return head;
+        ListNode *pre = nullptr;
+        ListNode *mid = head;
+        ListNode *post = head;
+
+        while(post->next != nullptr){
+            post = post->next;
             mid->next = pre;
-            post->next = mid;
-            return post;
+            pre = mid;
+            mid = post;
         }
+        post -> next = pre;
+        return post;
     }
 };
-
-
-//===============================
-int main(){
-    return 0;
-}
